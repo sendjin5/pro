@@ -84,24 +84,13 @@ public class MemberController {
     }
 
     @PostMapping("login")
-    public String login(@RequestParam String id, @RequestParam String pw, Model model) {
-        Member mem = memberService.login(id);
-        if(mem != null) {
-            boolean loginSuccess = pwEncoder.matches(pw, mem.getPw());
-            if (loginSuccess) {
-                session.setAttribute("sid", id);
-                model.addAttribute("msg", "로그인을 성공하셨습니다.");
-                model.addAttribute("url", "/main");
-                return "/member/alert";
-            } else {
-                model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
-                model.addAttribute("url", "/member/login");
-                return "/member/alert";
-            }
+    public String loginPro(@RequestParam String id, @RequestParam String pw, Model model) throws Exception {
+        boolean pass = memberService.loginPro(id, pw);
+        if (pass) {
+            session.setAttribute("sid", id);
+            return "redirect:/main";
         } else {
-        model.addAttribute("msg", "아이디가 없습니다.");
-        model.addAttribute("url", "/member/login");
-        return "/member/alert";
+            return "redirect:/member/login";
         }
     }
 
@@ -115,20 +104,9 @@ public class MemberController {
 
 
 
-
-
-    @GetMapping("List")
-    public String memberList(Model model) {
-        List<Member> memberList = memberService.memberList();
-        model.addAttribute("memberList", memberList);
-        return "/member/memberList";
-    }
-
-
-
     @GetMapping("delete")
     public String memberDelete(@RequestParam String id, HttpSession session, Model model) throws Exception {
-        memberService.delete(id);
+        memberService.removeMember(id);
         session.invalidate();
         model.addAttribute("msg", "회원탈퇴가 정상적으로 진행되었습니다.");
         model.addAttribute("url", "/main");
@@ -151,7 +129,7 @@ public class MemberController {
         String pw = request.getParameter("pw");
         String pw2 = request.getParameter("pw2");
 
-        String name = request.getParameter("name");
+        String nm = request.getParameter("name");
         String email = request.getParameter("email");
         String tel = request.getParameter("tel");
         String addr1 = request.getParameter("addr1");
@@ -166,7 +144,7 @@ public class MemberController {
         } else{
             dto.setPw(oldPw);
         }
-        dto.setName(name);
+        dto.setNm(nm);
         dto.setEmail(email);
         dto.setTel(tel);
         dto.setAddr1(addr1);
@@ -174,7 +152,7 @@ public class MemberController {
         dto.setPostcode(postcode);
         dto.setBirth(birth);
 
-        memberService.update(dto);
+        memberService.updateMember(dto);
         model.addAttribute("dto", dto);
         model.addAttribute("msg", "회원정보가 수정되었습니다.");
         model.addAttribute("url", "/member/get");

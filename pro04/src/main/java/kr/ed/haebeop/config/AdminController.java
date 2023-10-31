@@ -28,24 +28,24 @@ public class AdminController {
     @Autowired
     private DatService datService;
 
-    //member------------------------------------------------
-    @RequestMapping(value = "MemberListAdmin", method = RequestMethod.GET)
-    protected String getMemberList(HttpServletRequest request, Model model) throws Exception {
-        request.setAttribute("msg", "회원 목록을 출력합니다.");
-
-        String sid = (String) session.getAttribute("sid");
-
-        if(sid != null && sid.equals("admin")) {
-
-            List<Member> memberList = memberService.memberList();
-
-            request.setAttribute("memberList", memberList);
-
-            return "/admin/memberList";
-        } else {
-            return "redirect:/";
-        }
-    }
+//    //member------------------------------------------------
+//    @RequestMapping(value = "MemberListAdmin", method = RequestMethod.GET)
+//    protected String getMemberList(HttpServletRequest request, Model model) throws Exception {
+//        request.setAttribute("msg", "회원 목록을 출력합니다.");
+//
+//        String sid = (String) session.getAttribute("sid");
+//
+//        if(sid != null && sid.equals("admin")) {
+//
+//            List<Member> memberList = memberService.memberList()memberList();
+//
+//            request.setAttribute("memberList", memberList);
+//
+//            return "/admin/memberList";
+//        } else {
+//            return "redirect:/";
+//        }
+//    }
     @GetMapping("memget")
     public String memberGet(HttpServletRequest request, Model model) throws Exception {
         String id = (String) request.getParameter("id");
@@ -57,7 +57,7 @@ public class AdminController {
     @GetMapping("memdelete")
     public String memberDelete(HttpServletRequest request, HttpSession session, Model model) throws Exception {
         String id = request.getParameter("id");
-        memberService.delete(id);
+        memberService.removeMember(id);
         return "redirect:/admin/MemberListAdmin";
 
     }

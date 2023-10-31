@@ -3,20 +3,24 @@ CREATE DATABASE haebeop
 DROP DATABASE haebeop
 
 -- member
-CREATE TABLE MEMBER(
-       id VARCHAR(20) PRIMARY KEY,   -- (아이디)
-       pw VARCHAR(300) NOT NULL,   -- (비밀번호)
-       NAME VARCHAR(100) NOT NULL,   -- (이름)
-       email VARCHAR(100) NOT NULL,   -- (이메일)
-       tel VARCHAR(13),   -- (전화번호)
-       addr1 VARCHAR(200),
-       addr2 VARCHAR(100),
-       postcode VARCHAR(10),
-       regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (가입일)
-       birth DATE, -- 생일
-       POINT INT DEFAULT 0,   -- (포인트)
-       grade INT DEFAULT 1-- 등급: 0 관리자, 1 학부모, 2 학생
+CREATE TABLE member(
+                       mno INT AUTO_INCREMENT PRIMARY KEY,					-- 회원 번호 : 자동 발생
+                       id VARCHAR(20) UNIQUE KEY,								-- 회원 아이디
+                       pw VARCHAR(500) NOT NULL,								-- 회원 비밀번호
+                       nm VARCHAR(50) NOT NULL,								-- 회원 이름
+                       email VARCHAR(50) NOT NULL,							-- 회원 이메일
+                       tel VARCHAR(20) NOT NULL,								-- 회원 전화번호
+                       addr1 VARCHAR(200),										-- 회원 주소
+                       addr2 VARCHAR(100),										-- 회원 상세 주소
+                       postcode VARCHAR(10),									-- 회원 우편 번호
+                       regDate DATETIME DEFAULT CURRENT_TIMESTAMP(),	-- 회원 등록일
+                       birth DATE,													-- 회원 생일
+                       pt INT DEFAULT 0,											-- 회원 포인트
+                       visited INT DEFAULT 0,									-- 회원 방문수
+                       useYn BOOLEAN DEFAULT TRUE,							-- 회원 사용 여부
+                       grade INT DEFAULT 2										-- 회원 등급 [ 0 : 관리자, 1 : 선생님, 2 : 일반사용자]
 );
+
 insert into member(id, pw, name, email, tel, addr1, addr2, postcode) VALUES('admin', 1234, 'admin', 'sendjin1@naver.com', '010-1234-1234', 'add1', 'add2', 'postcode')
 -- board
 CREATE TABLE board(
@@ -63,65 +67,69 @@ CREATE TABLE qna(
         par INT DEFAULT 0	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
 );
 
--- 학습 자료실free
-CREATE TABLE dataBoard(
-      bno INT PRIMARY KEY AUTO_INCREMENT,                     -- (게시글 번호) 자동 발생
-      title VARCHAR(200) NOT NULL,                            -- (게시글 제목)
-      content VARCHAR(1000),                                  -- (게시글 내용)
-      regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-      visited INT DEFAULT 0,                                  -- (조회수)
-      hasFile BOOLEAN DEFAULT false                           -- 프로필 사진
-);
-
-CREATE TABLE dataFile(
-     fno INT primary KEY AUTO_INCREMENT, -- 파일 번호
-     fileName VARCHAR(100),              -- 파일 원본 이름
-     saveName VARCHAR(100),              -- 파일 저장 이름
-     fileType VARCHAR(100),              -- 파일 타입
-     saveFolder VARCHAR(100),            -- 파일 저장 폴더
-     bno INT NOT NULL,                   -- 파일을 저장한 게시글 번호
-     relations VARCHAR(20)               -- 파일을 저장한 게시판 타입
-);
-
-    COMMIT
 
 
 -- 강의시스템 (온&오프라인)
 CREATE TABLE lecture(
-    ino INT PRIMARY KEY AUTO_INCREMENT,   -- (강의  번호) 자동 발생
-    title VARCHAR(200) NOT NULL,   -- (강의 제목)
-    content VARCHAR(1000),   -- (강의 내용)
-    author VARCHAR(16) NOT NULL,   -- (작성자)
-    exceed INT DEFAULT 0, 	-- (최대 신청 수)
-    clas VARCHAR(200),	-- (강의 과목)
-    regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-    visited INT DEFAULT 0   -- (조회수)
-        credit VARCHAR(200) NOT NULL,
+            lno INT AUTO_INCREMENT PRIMARY KEY,			-- 강의 번호 : 자동증가
+            title VARCHAR(150) NOT NULL,					-- 강의 제목
+            subTitle VARCHAR(500) NOT NULL,				-- 강의 소제목
+            content VARCHAR(2000) NOT NULL,				-- 강의 내용
+            lectureType INT NOT NULL,						-- 강의 타입 [ 온라인 : 0, 오프라인 : 1 ]
+            studentCnt INT NOT NULL, 						-- 강의 수강 인원
+            startDate TIMESTAMP,								-- 강의 시작 기간 - 오프라인 사용
+            endDate TIMESTAMP,								-- 강의 종료 기간 - 오프라인 사용
+            daily VARCHAR(200),								-- 강의 하루 일정 - 오프라인 사용
+            teacherId VARCHAR(20) NOT NULL,				-- 강의 담당 선생 아이디
+            teacherNm VARCHAR(20),
+            thumbnail VARCHAR(100),                	-- 강의 썸네일
+            lvideo VARCHAR(100)  ,    						-- 샘플영상
+            sno INT NOT NULL, 								-- 과목
+            cost INT NOT NULL, 								-- 강의가격
+            bookname VARCHAR(150),							-- 교재명
+            bthumbnail VARCHAR(100)    					-- 교재 썸네일
 );
 
 
 
 CREATE TABLE files(
-                      fno INT PRIMARY KEY AUTO_INCREMENT,   							-- 파일번호: 자동발생
-                      par VARCHAR(1000) NOT NULL,   													-- 해당 게시글 번호
-                      saveFolder VARCHAR(1000) NOT NULL,								-- 파일 저장 폴더
-                      originNm VARCHAR(500) NOT NULL,									-- 파일 원래 이름
-                      saveNm VARCHAR(500) NOT NULL,										-- 파일 저장 이름
-                      fileType VARCHAR(100) NOT NULL,									-- 파일 확장자
-                      uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP	-- 파일 업로드 일자
+          fno INT PRIMARY KEY AUTO_INCREMENT,   							-- 파일번호: 자동발생
+          par VARCHAR(1000) NOT NULL,   													-- 해당 게시글 번호
+          saveFolder VARCHAR(1000) NOT NULL,								-- 파일 저장 폴더
+          originNm VARCHAR(500) NOT NULL,									-- 파일 원래 이름
+          saveNm VARCHAR(500) NOT NULL,										-- 파일 저장 이름
+          fileType VARCHAR(100) NOT NULL,									-- 파일 확장자
+          uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP	-- 파일 업로드 일자
 );
 
 CREATE TABLE fileboard(
-                          bno INT PRIMARY KEY AUTO_INCREMENT,   							-- 게시글 번호 : 자동 발생
-                          title VARCHAR(200) NOT NULL,   									-- 게시글 제목
-                          content VARCHAR(1000),   											-- 게시글 내용
-                          regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   	-- 등록일
-                          visited INT DEFAULT 0   											-- 조회수
+          bno INT PRIMARY KEY AUTO_INCREMENT,   							-- 게시글 번호 : 자동 발생
+          title VARCHAR(200) NOT NULL,   									-- 게시글 제목
+          content VARCHAR(1000),   											-- 게시글 내용
+          regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   	-- 등록일
+          visited INT DEFAULT 0   											-- 조회수
 );
 
-INSERT INTO MEMBER VALUES('admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', '관리자', 'admin@haebeop.ed.kr', '010-2121-2121', '', '', '', DEFAULT, NULL, DEFAULT, DEFAULT);
 
+INSERT INTO MEMBER VALUES(DEFAULT, 'admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', 'admin', 'admin@haebeop.ed.kr', '010-2121-2121', '1', '1', '1', DEFAULT, null, 100000, DEFAULT, DEFAULT, 0);
 SELECT * FROM files
 DROP TABLE files
 DROP TABLE fileboard
 SELECT * FROM fileboard
+
+CREATE TABLE payment(
+        payno INT AUTO_INCREMENT PRIMARY KEY,		    -- 결제 번호 : 자동증가
+        id VARCHAR(20) NOT NULL,                        -- 회원 아이디
+        pno int default 0,                              -- 강의 공유번호
+        plec VARCHAR(100) NOT NULL,                     -- 강의 이름
+        tecid VARCHAR(100) NOT NULL,                    -- 선생님 아이디
+        tecnm VARCHAR(100) NOT NULL,                    -- 선생님 이름
+        booknm VARCHAR(100),                            -- 책 교재명
+        pmethod VARCHAR(10),                            -- 결제 방법 - [1:신용카드 | 2:체크카드 | 3:계좌이체]
+        pcom VARCHAR(100),                              -- 결제 대행사
+        pnum VARCHAR(100),                              -- 결제카드(계좌)번호
+        price INT DEFAULT 1000,                         -- 결제 금액
+        amount INT DEFAULT 1,                           -- 결제 수량
+        status INT DEFAULT 0,                           -- 배송상태 - [0:결제완료 | 1:결제완료 | 2:결제취소]
+        resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP()   -- 결제 등록일
+);

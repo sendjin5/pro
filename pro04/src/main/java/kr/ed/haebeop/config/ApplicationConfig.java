@@ -24,4 +24,6 @@ public class ApplicationConfig {
     public FileService fileService(){ return new FilesServiceImpl(); }
     @Bean
     public LessonService lessonService(){ return new LessonServiceImpl(); }
+    @Bean
+    public LectureService lectureService(){ return new LectureServiceImpl();}
 }

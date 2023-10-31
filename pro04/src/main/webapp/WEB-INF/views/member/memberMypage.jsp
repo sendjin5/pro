@@ -40,7 +40,7 @@
                 <div class="tabs is-centered">
                     <ul>
                         <li class="is-active"><a>나의 정보</a></li>
-                        <li><a href="${path }/member/cart">나의 강의 장바구니</a></li>
+                        <li><a href="${path }/payment/paylistMember.do">나의 강의 장바구니</a></li>
 <%--                        <li><a href="${path }/attend/getMyAttend">나의 출석</a></li>--%>
                     </ul>
                 </div>

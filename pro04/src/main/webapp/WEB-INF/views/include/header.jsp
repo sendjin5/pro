@@ -18,7 +18,7 @@
                 <li class="nav-item"><a class="nav-link" href="${path }/fileboard/list">자료실</a></li>
                 <li class="nav-item"><a class="nav-link" href="${path }/notice/list">공지사항</a></li>
                 <li class="nav-item"><a class="nav-link" href="${path }/free/list">자유게시판</a></li>
-                <li class="nav-item"><a class="nav-link" href="${path }/lesson/list">강의</a></li>
+                <li class="nav-item"><a class="nav-link" href="${path }/lecture/list.do">강의</a></li>
                 <li class="nav-item"><a class="nav-link" href="${path }/sam2">샘플</a></li>
             </ul>
         </div>
