@@ -65,7 +65,7 @@
                 </td>
             </tr>
                     <div class="dataBoardFile">
-            <img src="${path }/resources/upload/${file.saveNm }" width="400" height="225"><br>
+            <img src="${path }/resources/upload/${file.saveFolder }/${file.saveNm }" width="400" height="225"><br>
             <a href="${path }/resources/upload/${file.saveFolder }/${file.saveNm }" download="${file.saveNm }"><i class="icofont-ui-file mr-2"></i>${file.originNm }</a>
                     </div>
 

@@ -77,12 +77,12 @@ public class LectureCtrl {
     }
 
 
-    @GetMapping("/lectAdd.do")   //비
+    @GetMapping("/lectAdd.do")   
     public String lectureAdd(Model model) throws Exception {
         return "/lecture/lectAdd";
     }
 
-    @PostMapping("lectAdd.do")   //비
+    @PostMapping("lectAdd.do")  
     public String lectureInsertpro(HttpServletRequest request, Model model, MultipartFile thumbnail, MultipartFile lvideo, MultipartFile bthumbnail) throws Exception{
         String msg = "";
 
@@ -129,21 +129,21 @@ public class LectureCtrl {
     }
     
     
-    @GetMapping("lectUpdate.do")     //비
+    @GetMapping("lectUpdate.do")    
     public String lectureUpdate(HttpServletRequest request, Model model) throws Exception{
         int lno = Integer.parseInt(request.getParameter("lno"));
         Lecture lecture = lectureService.lectureGet(lno);
         model.addAttribute("lecture", lecture);
         return "/lecture/lectUpdate";
     }
-    @PostMapping("lectUpdate.do")       //비
+    @PostMapping("lectUpdate.do")     
     public String lectureUpdatepro(HttpServletRequest request, Model model) throws Exception{
 
         int lno = Integer.parseInt(request.getParameter("lno"));
         ServletContext application = request.getSession().getServletContext();
 
         //String realPath = application.getRealPath("/resources/upload");                   //운영 서버
-        String realPath = "D:\\seulbee\\uploadtest";   //개발 서버
+        String realPath = "D:\\kyo\\pro\\pro04\\src\\main\\webapp\\resources\\upload";	      // 개발 서버
 
         Lecture lecture = new Lecture();
         lecture.setLno(lno);
@@ -162,7 +162,7 @@ public class LectureCtrl {
         return "redirect:/lecture/lectList.do";
     }
 
-    @GetMapping("lectDelete.do")    //비
+    @GetMapping("lectDelete.do")   
     public String lectureDelete(HttpServletRequest request, Model model) throws Exception{
         int lno = Integer.parseInt(request.getParameter("lno"));
         lectureService.lectureDelete(lno);

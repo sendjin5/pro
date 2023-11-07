@@ -1,7 +1,9 @@
 package kr.ed.haebeop.controller;
 
 import kr.ed.haebeop.domain.Member;
+import kr.ed.haebeop.domain.Payment;
 import kr.ed.haebeop.service.MemberService;
+import kr.ed.haebeop.service.PaymentService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +23,9 @@ public class MemberController {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private PaymentService paymentService;
 
     @Autowired
     HttpSession session;
@@ -79,7 +84,7 @@ public class MemberController {
     public String logout(HttpServletRequest request, Model model) throws Exception {
         session.removeAttribute("sid");
         model.addAttribute("msg", "로그아웃 하셨습니다.");
-        model.addAttribute("url", "/main");
+        model.addAttribute("url", "/");
         return "/member/alert";
     }
 
@@ -88,7 +93,7 @@ public class MemberController {
         boolean pass = memberService.loginPro(id, pw);
         if (pass) {
             session.setAttribute("sid", id);
-            return "redirect:/main";
+            return "redirect:/";
         } else {
             return "redirect:/member/login";
         }
@@ -109,7 +114,7 @@ public class MemberController {
         memberService.removeMember(id);
         session.invalidate();
         model.addAttribute("msg", "회원탈퇴가 정상적으로 진행되었습니다.");
-        model.addAttribute("url", "/main");
+        model.addAttribute("url", "/");
         return "/member/alert";
     }
 
@@ -158,14 +163,27 @@ public class MemberController {
         model.addAttribute("url", "/member/get");
         return "/member/alert";
     }
-//
-//    @PostMapping("update")
-//    public String memberUpdate(Member member, Model model) throws Exception {
-//        String pw = pwEncoder.encode(member.getPw());
-//        member.setPw(pw);
-//        memberService.update(member);
-//        model.addAttribute("msg", "회원정보가 수정되었습니다.");
-//        model.addAttribute("url", "/member/get");
-//        return "/member/alert";
-//    }
+
+    //    회원 페이지
+    @GetMapping("/paylistMem.do")
+    public String paymentList(HttpServletRequest request, Model model) throws Exception {
+        String id = (String) session.getAttribute("sid");
+
+        List<Payment> paymentList = paymentService.paymentList_Member(id);
+        Member member = memberService.memberGet(id);
+
+        model.addAttribute("paymentList", paymentList);
+        model.addAttribute("mem", member);
+        return "/member/payList";
+
+    }
+
+    @GetMapping("/myPage.do")
+    public String myPage(Model model) throws Exception {
+        String sid = (String) session.getAttribute("sid");
+        Member member = memberService.memberGet(sid);
+        model.addAttribute("member", member);
+
+        return "/member/memberMypage";
+    }
 }

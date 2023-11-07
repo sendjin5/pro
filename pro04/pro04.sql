@@ -21,7 +21,7 @@ CREATE TABLE member(
                        grade INT DEFAULT 2										-- 회원 등급 [ 0 : 관리자, 1 : 선생님, 2 : 일반사용자]
 );
 
-insert into member(id, pw, name, email, tel, addr1, addr2, postcode) VALUES('admin', 1234, 'admin', 'sendjin1@naver.com', '010-1234-1234', 'add1', 'add2', 'postcode')
+
 -- board
 CREATE TABLE board(
       bno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
@@ -80,8 +80,8 @@ CREATE TABLE lecture(
             startDate TIMESTAMP,								-- 강의 시작 기간 - 오프라인 사용
             endDate TIMESTAMP,								-- 강의 종료 기간 - 오프라인 사용
             daily VARCHAR(200),								-- 강의 하루 일정 - 오프라인 사용
-            teacherId VARCHAR(20) NOT NULL,				-- 강의 담당 선생 아이디
-            teacherNm VARCHAR(20),
+            teacherId VARCHAR(20),				-- 강의 담당 선생 아이디
+            teacherNm VARCHAR(20) NOT NULL,
             thumbnail VARCHAR(100),                	-- 강의 썸네일
             lvideo VARCHAR(100)  ,    						-- 샘플영상
             sno INT NOT NULL, 								-- 과목
@@ -117,12 +117,13 @@ DROP TABLE files
 DROP TABLE fileboard
 SELECT * FROM fileboard
 
+
 CREATE TABLE payment(
         payno INT AUTO_INCREMENT PRIMARY KEY,		    -- 결제 번호 : 자동증가
         id VARCHAR(20) NOT NULL,                        -- 회원 아이디
         pno int default 0,                              -- 강의 공유번호
         plec VARCHAR(100) NOT NULL,                     -- 강의 이름
-        tecid VARCHAR(100) NOT NULL,                    -- 선생님 아이디
+        tecid VARCHAR(100) ,                    -- 선생님 아이디
         tecnm VARCHAR(100) NOT NULL,                    -- 선생님 이름
         booknm VARCHAR(100),                            -- 책 교재명
         pmethod VARCHAR(10),                            -- 결제 방법 - [1:신용카드 | 2:체크카드 | 3:계좌이체]

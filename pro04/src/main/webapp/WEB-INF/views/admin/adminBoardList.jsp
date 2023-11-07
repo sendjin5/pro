@@ -23,12 +23,8 @@
         float: none;
     }
 
-    .bg-dark-admin {
-        background-color: rgb(33,37,41);
-        --bs-bg-opacity: 1;
-    }
 
-    .text-white{color: white}
+    .text-white{color: black}
 
     .p-3 {
         padding: 1rem!important;

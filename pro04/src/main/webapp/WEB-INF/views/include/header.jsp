@@ -8,7 +8,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="${path}/main"><img src="${path}/resources/image/logo.png" alt="logo" /></a>
+        <a class="navbar-brand" href="${path}/"><img src="${path}/resources/image/logo.png" alt="logo" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ms-1"></i>
@@ -19,7 +19,12 @@
                 <li class="nav-item"><a class="nav-link" href="${path }/notice/list">공지사항</a></li>
                 <li class="nav-item"><a class="nav-link" href="${path }/free/list">자유게시판</a></li>
                 <li class="nav-item"><a class="nav-link" href="${path }/lecture/list.do">강의</a></li>
-                <li class="nav-item"><a class="nav-link" href="${path }/sam2">샘플</a></li>
+                <c:if test="${sid == null}">
+                <li class="nav-item"><a class="nav-link" href="${path }/member/login">로그인</a></li>
+                </c:if>
+                <c:if test="${sid != null}">
+                    <li class="nav-item"><a class="nav-link" href="${path }/member/logout">로그아웃</a></li>
+                </c:if>
             </ul>
         </div>
     </div>

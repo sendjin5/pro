@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -15,24 +15,33 @@
 <body>
 <jsp:include page="../include/header.jsp" />
 
+<section class="page-title bg-02">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <div class="block has-text-centered">
+                    <h1 class="is-capitalize text-lg font-happy">강의리스트</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- 상단 강의 소개-->
 <div class="bg-dark py-5">
     <div class="container px-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
-                <img src="${path}/resources/image/lecture/thumnail(6).png">
+                <img src="${path}/resources/image/lecture/lect05.png">
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="text-align: left;">
                 <p>과목 : ${subject.title } </p>
-                <h1 class="display-5 fw-bolder text-white mb-2">${lecture.title }</h1>
-                <h3 class="lead text-white-50 mb-4">${lecture.subTitle }</h3>
-                <h3 class="lead text-white-50 mb-4">${teacher.nm }</h3>
+                <h1 class="display-5 fw-bolder text-black mb-2">${lecture.title }</h1>
+                <h3 class="lead text-black-50 mb-4">${lecture.subTitle }</h3>
+                <h3 class="lead text-black-50 mb-4">${teacher.nm }</h3>
                 <a class="btn btn-primary btn-lg px-4 me-sm-3" id="vvv" href="${path }/resources/image/lecture/lectvideo01.mp4" target="_blank" >강의 맛보기</a>
-                <a class="btn btn-outline-light btn-lg px-4" href="#lect_review">수강후기</a>
             </div>
         </div>
-    </div>
     </div>
 </div>
 
@@ -45,8 +54,6 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="tab-content" data-bs-toggle="tab" data-bs-target="#tab-content" type="button" role="tab" aria-selected="true">강의내용</button>
                     <button class="nav-link" id="tab-curri" data-bs-toggle="tab" data-bs-target="#tab-curri" type="button" role="tab" aria-selected="false">커리큘럼</button>
-                    <button class="nav-link" id="tab-review" data-bs-toggle="tab" data-bs-target="#tab-review" type="button" role="tab" aria-selected="false">수강후기</button>
-                    <button class="nav-link" id="tab-qna" data-bs-toggle="tab" data-bs-target="#tab-qna" type="button" role="tab"  aria-selected="false">질문하기</button>
                 </div>
             </nav>
             <!-- 강의 내용 -->

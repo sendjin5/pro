@@ -107,78 +107,53 @@
 </style>
 
 <!-- quickMenu -->
-
+<c:if test="${sid != null}">
     <div class="quickMenu">
         <div class="quick_title">
-                Quick
-                <br>
-                Menu
+            Quick
+            <br>
+            Menu
         </div>
         <div class="quick_btn">
-        <c:choose>
-            <c:when test="${sid=='admin'}">
+            <c:if test="${sid eq 'admin'}">
                 <ul>
                     <li class="quick01">
-                        <a href="${path }/member/get?sid=${sid}">
-                            <p>마이페이지</p>
-                        </a>
-                    </li>
-                    <li class="quick02">
-                        <a href="${path }/admin/MemberListAdmin">
+                        <a href="${path }/admin/">
                             <p>관리자페이지</p>
                         </a>
                     </li>
-                    <li class="quick03">
-                        <a href="${path }/member/lesson">
-                            <p>나의 강의실</p>
+                    <li class="quick02">
+                        <a href="${path }/member/myPage.do">
+                            <p>마이페이지</p>
                         </a>
                     </li>
                     <li class="quick04">
-                        <a href="${path }/member/logout">
-                            <p>로그아웃</p>
+                        <a href="${path }/member/mypageLectList.do">
+                            <p>나의 강의실</p>
                         </a>
                     </li>
                 </ul>
-               </c:when>
-            <c:when test="${!empty sid}">
+            </c:if>
+            <c:if test="${sid ne 'admin'}">
                 <ul>
                     <li class="quick01">
-                        <a href="${path }/member/get?sid=${sid}">
+                        <a href="${path }/member/myPage.do">
                             <p>마이페이지</p>
                         </a>
                     </li>
                     <li class="quick02">
-                        <a href="${path }/member/lesson">
+                        <a href="${path }/member/mypageLectList.do">
                             <p>나의 강의실</p>
                         </a>
                     </li>
-                    <li class="quick03">
-                        <a href="${path }/member/logout">
-                            <p>로그아웃</p>
-                        </a>
-                    </li>
                 </ul>
-            </c:when>
-            <c:otherwise>
-                <ul>
-                    <li class="quick01">
-                        <a href="${path }/member/login">
-                            <p>로그인</p>
-                        </a>
-                    </li>
-                    <li class="quick02">
-                        <a href="${path }/member/term">
-                            <p>회원가입</p>
-                        </a>
-                    </li>
-                </ul>
-            </c:otherwise>
-        </c:choose>
+            </c:if>
         </div>
         <div class="quick_top">
             <a href="#">TOP</a>
         </div>
     </div>
+</c:if>
 
 <footer id="ft">
 
@@ -204,11 +179,6 @@
                     </a>
                 </div>
             </div>
-            <div class="foot-sns">
-                <a href="https://www.instagram.com/genia.academy/"><img src="http://fiximage.10x10.co.kr/web2021/cscenter/icon_sns_instagram.png" alt="insta"></a>
-                <a href="#"><img src="http://fiximage.10x10.co.kr/web2021/cscenter/icon_sns_facebook.png" alt="facebook"></a>
-                <a href="https://www.youtube.com/channel/UCgJ8iR8g3_7Cx-kqZZAcRrQ"><img src="http://fiximage.10x10.co.kr/web2021/cscenter/icon_sns_you.png" alt="yotube"></a>
-            </div></div>
 
         </div>
     </div>

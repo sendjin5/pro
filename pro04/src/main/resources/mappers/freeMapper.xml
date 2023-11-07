@@ -70,7 +70,7 @@
     </select>
 
     <select id="freeListForMain" resultType="kr.ed.haebeop.domain.Free">
-        select * from free order by regDate desc LIMIT 4
+        select * from free order by regdate desc LIMIT 4
     </select>
 
 </mapper>

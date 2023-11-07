@@ -12,7 +12,7 @@
                 <div class="column is-12-desktop is-8-tablet">
                     <div class="header-top-right has-text-right-tablet has-text-centered-mobile">
                         <c:if test="${sid=='admin'}">
-                            <a href="${path }/main" class="is-size-6 has-text-weight-semibold">메인페이지 이동</a>
+                            <a href="${path }/" class="is-size-6 has-text-weight-semibold">메인페이지 이동</a>
                             <a href="${path }/member/logout?sid=${sid}" class="is-size-6 has-text-weight-semibold">로그아웃</a>
                         </c:if>
                     </div>

@@ -31,13 +31,8 @@ public class PaymentCtrl {
     @Autowired
     private LectureService lectureService;
 
-    //    회원 페이지
-    @GetMapping("/rrr.do")
-    public String rrr( Model model) throws Exception {
 
-        return "/payment/rrr";
 
-    }
     @GetMapping("payinsert.do")
     public String insertpay(@RequestParam int lno, HttpServletRequest req, Model model )throws Exception{
         String id = (String) session.getAttribute("sid");
@@ -47,25 +42,21 @@ public class PaymentCtrl {
         model.addAttribute("lecture", lecture);
         return "/payment/paymentInsert";
 }
+
+
     @PostMapping("payinsert.do")
     public String insertpaypro(@ModelAttribute Payment payment, @ModelAttribute Member member, Model model )throws Exception{
         paymentService.insertpayment(payment);
         memberService.firepoint(member);
-        return "redirect:/user/paylistMem.do";
+        return "redirect:/payment/paylistMem.do";
     }
 
-//    회원 페이지
-    @GetMapping("/paylistMember.do")
-    public String paymentList(HttpServletRequest request, Model model) throws Exception {
-        String id = (String) session.getAttribute("sid");
 
-        List<Payment> paymentList = paymentService.paymentList_Member(id);
-        Member member = memberService.memberGet(id);
-
-        model.addAttribute("paymentList", paymentList);
-        model.addAttribute("mem", member);
-        return "/member/payList";
-
+    @GetMapping("paydelete.do")   
+    public String payDelete(HttpServletRequest request, @RequestParam int payno, Model model) throws Exception{
+        paymentService.deletepayment(payno);
+        return "redirect:/lecture/list.do";
     }
+
 
 }

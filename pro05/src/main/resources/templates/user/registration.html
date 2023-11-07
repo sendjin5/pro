@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.4.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>회원 가입</h2>
+        <form th:action="@{/registration}" action="#" autocomplete="off" th:object="${user}" method="post">
+            <div>
+                <label th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></label>
+                <input type="text" th:field="*{id}" placeholder="id" required>
+            </div>
+            <div>
+                <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+                <input type="text" th:field="*{name}" placeholder="name" required>
+            </div>
+            <div>
+                <label th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}"></label>
+                <input type="password" th:field="*{pw}" placeholder="pw" required>
+            </div>
+            <div>
+                <label th:if="${#fields.hasErrors('pw2')}" th:errors="*{pw2}"></label>
+                <input type="password" th:field="*{pw2}" placeholder="pw2" required>
+            </div>
+            <div>
+                <button type="submit">회원가입</button>
+                <button type="button" onclick="api()">본인인증</button>
+            </div>
+
+            <span th:utext="${successMessage}"></span>
+        </form>
+    </div>
+    <script>
+
+        function api() {
+
+            IMP.init('imp67615784');
+            IMP.certification({
+                pg: 'A010002002',
+                merchant_uid: 'AM200',//본인인증과 연관된 가맹점 내부 주문번호가 있다면 넘겨주세요
+                imp_uid: 5,
+                popup: true
+            }, function (rsp) {
+                if (rsp.success) {
+                    // 인증성공
+                    console.log(rsp.imp_uid);
+                    console.log(rsp.merchant_uid);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/certifications/confirm',
+                        dataType: 'json',
+                        data: {
+                            imp_uid: rsp.imp_uid
+                        }
+                    }).done(function (rsp) {
+                        // 이후 Business Logic 처리하시면 됩니다.
+                    });
+
+                } else {
+                    // 인증취소 또는 인증실패
+                    var msg = '인증에 실패하였습니다.';
+                    msg += '에러내용 : ' + rsp.error_msg;
+
+                    alert(msg);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

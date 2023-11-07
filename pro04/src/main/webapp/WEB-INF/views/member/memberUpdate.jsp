@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <th>이름</th>
-                                <td>${member.name }</td>
+                                <td>${member.nm }</td>
                             </tr>
                             <tr>
                                 <th><label for="email">이메일</label></th>

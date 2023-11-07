@@ -190,14 +190,14 @@ address {
 
 ol,
 ul {
-  padding-left: 2rem;
+  padding-left: 0;
 }
 
 ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 ol ol,
@@ -385,12 +385,7 @@ select:disabled {
   display: none !important;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
+
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -6696,7 +6691,7 @@ textarea.form-control-lg {
 }
 
 .text-bg-dark {
-  color: #fff !important;
+  black: #fff !important;
   background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;
 }
 
@@ -8163,11 +8158,6 @@ textarea.form-control-lg {
 .bg-light {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-}
-
-.bg-dark {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {
@@ -10839,7 +10829,7 @@ body {
 }
 
 p {
-  line-height: 1.75;
+  line-height: 0.3;
 }
 
 .page-section {
@@ -10860,7 +10850,7 @@ p {
 
 @media (min-width: 768px) {
   section {
-    padding: 9rem 0;
+    padding: 4rem 0;
   }
 }
 .btn-xl {
@@ -11359,19 +11349,19 @@ section#contact form#contactForm :-ms-input-placeholder {
   background-size: 40px;
   box-sizing:border-box;
   border:1px solid #fff;
-  list-style:none;
-  display: block;
-
 }
 
 .quickMenu li.quick01 {
-  background-image:url("../image/quickIcon01.png");
+  background-image:url("../image/main/quickIcon01.png");
 }
 .quickMenu li.quick02 {
-  background-image:url("../image/quickIcon02.png");
+  background-image:url("../image/main/quickIcon02.png");
 }
 .quickMenu li.quick03 {
-  background-image:url("../image/quickIcon03.png");
+  background-image:url("../image/main/quickIcon03.png");
+}
+.quickMenu li.quick04 {
+  background-image:url("../image/main/quickIcon04.png");
 }
 .quick_btn {
   background-color: white;
@@ -11385,7 +11375,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   color:#666;
 }
 .quick_btn p {
-  padding-top:50%;
+  padding-top:43%;
   font-size:0.85em;
 }
 .quick_btn li:hover, .quick_btn li:active {
@@ -11407,4 +11397,8 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .quick_top a:hover, .quick_top a:active {
   color:var(--sub-color);
+}
+
+.buttons{
+  float: right;
 }

@@ -84,7 +84,7 @@
 		      	</tbody>
 		      </table>
 					<c:if test="${not empty sid}">
-						<div class="buttons is-centered">
+						<div class="buttons is-centered" >
 							<a class="button is-mainColor" href="${path }/free/insert">글쓰기</a>
 						</div>
 					</c:if>
