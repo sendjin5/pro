@@ -42,16 +42,20 @@ CREATE TABLE file(
 );
 
 
-CREATE TABLE prodect(
-    pno INT AUTO_INCREMENT PRIMARY KEY,						-- 상품 번호 : 자동증가
-    userNo INT NOT NULL,											-- 고객번호
-    userId VARCHAR(100) NOT NULL,								-- 고객 아이디
-    title VARCHAR(150) NOT NULL,								-- 상품 제목
-    cate VARCHAR(100) NOT NULL,								-- 상품 카테고리
-    content VARCHAR(2000) NOT NULL,							-- 상품 내용
-    startDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),	-- 상품 시작 기간 - 오프라인 사용
-    ingDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),		-- 상품 종료 기간 - 오프라인 사용	teacherNm VARCHAR(20),
-    thumbnail VARCHAR(100),                				-- 상품 썸네일
-    price INT NOT NULL, 											-- 강의가격
-    ADD1 VARCHAR(100)												-- 상품 지역
+CREATE TABLE product(
+                        pno INT AUTO_INCREMENT PRIMARY KEY,						-- 상품 번호 : 자동증가
+                        userNo INT NOT NULL,											-- 고객번호
+                        userId VARCHAR(100) NOT NULL,								-- 고객 아이디
+                        title VARCHAR(150),								-- 상품 제목
+                        cate VARCHAR(100),								-- 상품 카테고리
+                        content VARCHAR(2000),							-- 상품 내용
+                        startDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),	-- 상품 시작 기간 - 오프라인 사용
+                        ingDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),		-- 상품 종료 기간 - 오프라인 사용	teacherNm VARCHAR(20),
+                        thumbnail VARCHAR(100),                				-- 상품 썸네일
+                        price INT, 											-- 강의가격
+                        addr1 VARCHAR(100),												-- 상품 지역
+                        visited INT DEFAULT 0,
+                        STATUS INT DEFAULT 0
 );
+
+insert into product values(DEFAULT, 123, 'kyo', '요리', '전자기기', '핸드폰 팝니다.', default, DEFAULT, '사진들', 50000, '계산동', default)

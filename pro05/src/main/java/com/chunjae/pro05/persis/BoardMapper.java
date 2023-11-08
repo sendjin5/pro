@@ -19,7 +19,7 @@ public interface BoardMapper {
     @Select("select * from board where no=#{no}")
     public Board boardGet(int no);
 
-    @Insert("insert into board values(default, #{title}, #{content}, #{author}, default)")
+    @Insert("insert into board values(default, #{title}, #{content}, #{author}, #{bfile}, default)")
     public void boardAdd(Board board);
 
     @Delete("delete from board where no=#{no}")

@@ -1,13 +1,15 @@
 server:
   port: 8085
-itemImgLocation: C:/shop/item
-uploadPaths: file:///C:/pro05
+itemImgLocation: D:/kyo/pro
+uploadPaths: file:///D://kyo//pro
 spring:
   servlet:
     multipart:
+      enabled: true
+      location: C:\\upload
       max-request-size: 100MB
       max-file-size: 20MB
-  profile:
+  profiles:
     active: local
   thymeleaf:
     check-template-location: true

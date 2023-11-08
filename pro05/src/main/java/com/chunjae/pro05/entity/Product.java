@@ -7,7 +7,7 @@ public class Product {
 
     private int pno;
     private int userNo;
-    private String UserId;
+    private String userId;
     private String title;
     private String cate;
     private String content;
@@ -16,4 +16,7 @@ public class Product {
     private String thumbnail;
     private int price;
     private String addr1;
+    private String visited;
+    private int status;
+
 }

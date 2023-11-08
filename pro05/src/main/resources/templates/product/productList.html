@@ -3,50 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" th:href="@{/images/logo.png}">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
-    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
-    <title>자주쓰는 답변</title>
+    <title>메인 페이지</title>
 </head>
 <body>
 
-<table>
+<table style="display:block;">
+    <button type="button" id="btn1">전체지역</button>
+    <button type="button" id="btn2">해당지역</button>
     <thead>
         <tr>
-            <th>번호</th>
-            <th>순번</th>
-            <th>내용</th>
-            <th>아이디 넘버</th>
-            <th>사용</th>
-            <th>삭제</th>
+            <th>지역</th>
+            <th>썸네일</th>
+            <th>상품 제목</th>
+            <th>아이디</th>
+            <th>가격</th>
         </tr>
     </thead>
     <tbody>
-    <tr th:each="reco, num : ${recommentList}">
-        <td th:text="${num.count}"></td>
-        <td th:text="${reco.no}"></td>
-        <td th:text="${reco.comment}" ></td>
-        <td th:text="${reco.id_no}"></td>
-        <td><button type="button" th:com="${reco.getComment()}" onclick="choice(this.getAttribute('com'))">사용</button></td>
-        <td><a th:href="@{/recomment/Del(no=${reco.getNo()})}">삭제하기</a></td>
+    <tr th:each="pro : ${proAllList}" id="proAllList" style="display: block">
+        <td th:text="${pro.addr1}"></td>
+        <td th:text="${pro.thumbnail}"></td>
+        <td ><a th:href="@{/product/Get(pno=${pro.pno})}" th:text="${pro.title}" ></a></td>
+        <td th:text="${pro.userId}"></td>
+        <td th:text="${pro.price}"></td>
+        <td><a th:href="@{/product/Del(pno=${pro.getPno()})}">삭제하기</a></td>
+    </tr>
+    <tr th:each="sel : ${proSelList}" id="proSelList" style="display: none">
+        <td th:text="${sel.addr1}"></td>
+        <td th:text="${sel.thumbnail}"></td>
+        <td ><a th:href="@{/product/Get(pno=${sel.pno})}" th:text="${sel.title}" ></a></td>
+        <td th:text="${sel.userId}"></td>
+        <td th:text="${sel.price}"></td>
+        <td><a th:href="@{/product/Del(pno=${sel.getPno()})}">삭제하기</a></td>
     </tr>
     </tbody>
 </table>
-
-<div th:if="${recommentList.size() < 5}">
-    <a th:href="@{/recomment/Add}">자주 쓰는 글 등록</a>
+<div>
+    <a th:href="@{/product/Add}">상품등록</a>
+    <a th:href="@{/product/TemAdd}">임시등록 리스트</a>
 </div>
-<script>
-    function choice(comment){
-        if(window.confirm("문구를 사용할 경우 현재 작성한 문구는 사라집니다.")) {
-            opener.document.fm.content.value = comment;
-            window.close();
-        }
-    }
-
-</script>
 </body>
+<script th:inline="javascript">
+    $(document).ready(function() {
+        $("#btn1").click(function () {
+            $("#proAllList").css("display", "block");
+            $("#proSelList").css("display", "none");
+        })
+    })
+        $(document).ready(function() {
+        $("#btn2").click(function () {
+            $("#proAllList").css("display", "none");
+            $("#proSelList").css("display", "block");
+        });
+    });
+</script>
 </html>
