@@ -1,11 +1,11 @@
 package com.chunjae.pro05.biz;
 
-import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.Role;
 import com.chunjae.pro05.entity.User;
 import com.chunjae.pro05.entity.UserRole;
 import com.chunjae.pro05.persis.RoleMapper;
 import com.chunjae.pro05.persis.UserMapper;
+import com.chunjae.pro05.persis.UserMapper2;
 import com.chunjae.pro05.persis.UserRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserDetailsService {
+    @Autowired
+    private UserMapper2 userMapper2;
+
     @Autowired
     private UserMapper userMapper;
 
@@ -28,14 +31,35 @@ public class UserService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User findUserByLoginId(String loginId) {
-        return userMapper.findUserByLoginId(loginId);
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        User user = userMapper2.loginId(id);
+        return user;
     }
 
-    public void saveUser(User user) {
+    //    List<User> userList();
+//    User userGet();
+//    void userWith();
+//    void userJoin();
+//    void userDormant();
+//    User login ();
+//    int idCheck(String id) ;
+//    void insert(User user) ;
+//    public void userDel(String id);
+//
+
+
+
+//
+//    public User findUserByLoginId(String loginId) {
+//        return userMapper2.findUserByLoginId(loginId);
+//    }
+//
+
+    public void UserInfo(User user) {
         user.setPw(bCryptPasswordEncoder.encode(user.getPw()));
-        user.setGrade(1);
-        userMapper.setUserInfo(user);
+        user.setGrade(2);
+        userMapper2.UserInfo(user);
         Role role = roleMapper.getRoleInfo("USER");
         UserRole userRole = new UserRole();
         userRole.setRoleId(role.getId());
@@ -43,9 +67,6 @@ public class UserService implements UserDetailsService {
         userRoleMapper.setUserRoleInfo(userRole);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userMapper.findUserByLoginId(username);
-        return new UserPrincipal(user);
-    }
+
+
 }

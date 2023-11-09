@@ -5,6 +5,8 @@ import com.chunjae.pro05.biz.BoardSerivce;
 import com.chunjae.pro05.biz.FilesService;
 import com.chunjae.pro05.entity.Board;
 import com.chunjae.pro05.entity.Files;
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.*;
 
-
+@Slf4j
 @Controller
 @RequestMapping("/board/*")
 public class boardController {
@@ -67,9 +69,13 @@ public class boardController {
                     String uploaduploadFiles = uuid.toString() + "_" + originaluploadFiles;
                     uploadFiles.transferTo(new File(realPath, uploaduploadFiles));     //파일 등록
                     board.setBfile(uploaduploadFiles);
-                }else{
-                    System.out.println("nononono");
+                    
+                    log.info("문제 ; " + uploaduploadFiles);
+                    log.info("기존 이름 ; " + originaluploadFiles);
+                    log.info("경로 ; " + realPath);
+                    
                 }
+
                 boardSerivce.boardAdd(board);
 
         return "redirect:/board/List";

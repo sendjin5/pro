@@ -26,6 +26,7 @@ public class BoardServiceImpl implements BoardSerivce{
 
     @Override
     public void boardAdd(Board board) {
+
         boardMapper.boardAdd(board);
     }
 

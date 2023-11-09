@@ -1,7 +1,5 @@
 server:
   port: 8085
-itemImgLocation: D:/kyo/pro
-uploadPaths: file:///D://kyo//pro
 spring:
   servlet:
     multipart:
@@ -36,4 +34,5 @@ logging:
   level:
     org:
       springframework: info
-
+itemImgLocation: D:/kyo/pro
+uploadPaths: file:///D://kyo//pro

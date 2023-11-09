@@ -1,7 +1,6 @@
 package com.chunjae.pro05.ctrl;
 
 import com.chunjae.pro05.biz.UserService;
-import com.chunjae.pro05.domain.UserPrincipal;
 import com.chunjae.pro05.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.List;
 @Controller
 public class UserController {
 
@@ -26,12 +23,14 @@ public class UserController {
         return "/user/index";
     }
 
+
     @GetMapping( "/login")
     public ModelAndView getLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("user/login");
         return modelAndView;
     }
+
 
     @GetMapping("/registration")
     public ModelAndView getRegistrationPage() {
@@ -42,35 +41,35 @@ public class UserController {
 
         return modelAndView;
     }
-
-    //@Valid
-    @PostMapping("/registration")
-    public ModelAndView createNewUser(User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-
-        User userExists = userService.findUserByLoginId(user.getId());
-        if (userExists != null) {
-            bindingResult
-                    .rejectValue("id", "error.id","There is already a user registered with the loginId provided");
-        }
-
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("/user/registration");
-        } else {
-            userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("/user/registration");
-        }
-        return modelAndView;
-    }
+//
+//    //@Valid
+//    @PostMapping("/registration")
+//    public ModelAndView createNewUser(User user, BindingResult bindingResult) {
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        User userExists = userService.loadUserByUsername(user);
+//        if (userExists != null) {
+//            bindingResult
+//                    .rejectValue("id", "error.id","There is already a user registered with the loginId provided");
+//        }
+//
+//        if (bindingResult.hasErrors()) {
+//            modelAndView.setViewName("/user/registration");
+//        } else {
+//            userService.(user);
+//            modelAndView.addObject("successMessage", "User has been registered successfully");
+//            modelAndView.addObject("user", new User());
+//            modelAndView.setViewName("/user/registration");
+//        }
+//        return modelAndView;
+//    }
 
     @GetMapping("/home")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserPrincipal userPrincipal = (UserPrincipal) auth.getPrincipal();
+        User userPrincipal = (User) auth.getPrincipal();
 
         System.out.println(userPrincipal.toString());
 
