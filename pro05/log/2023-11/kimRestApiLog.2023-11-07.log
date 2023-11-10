@@ -364,24 +364,24 @@ Caused by: java.io.IOException: Failed to parse mapping resource: 'file [D:\kyo\
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
 	... 63 common frames omitted
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\kyo\pro\pro05\build\resources\main\mappers\role.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.test07.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.test07.entity.Role
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\kyo\pro\pro05\build\resources\main\mappers\role.xml]'. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.pro05.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.pro05.entity.Role
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:128)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:100)
 	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:698)
 	... 76 common frames omitted
-Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.test07.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.test07.entity.Role
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.pro05.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.pro05.entity.Role
 	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:270)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:262)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:254)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:124)
 	... 78 common frames omitted
-Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.test07.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.test07.entity.Role
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.chunjae.pro05.entity.Role'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.pro05.entity.Role
 	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:128)
 	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:150)
 	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
 	... 82 common frames omitted
-Caused by: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.test07.entity.Role
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.chunjae.pro05.entity.Role
 	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:226)
 	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:103)
 	at org.apache.ibatis.io.Resources.classForName(Resources.java:322)

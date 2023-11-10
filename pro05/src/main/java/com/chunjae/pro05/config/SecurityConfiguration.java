@@ -43,18 +43,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/","/**","/login","/registration").permitAll()
-                .mvcMatchers("/css/**","/js/**","/images/**", "/upload/**").permitAll()
-//                .antMatchers("/home").hasAuthority("ADMIN") // ADMIN 권한의 유저만 /home 에 접근가능
-                .antMatchers("/home").hasAnyRole("ADMIN")
+                .mvcMatchers("/css/**","/js/**","/images/**").permitAll()
+                .antMatchers("/home").hasAuthority("ADMIN") // ADMIN 권한의 유저만 /home 에 접근가능
                 .anyRequest().authenticated()
-
                 .and().csrf().disable().cors().disable()
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true")
                 .defaultSuccessUrl("/home")
-                .usernameParameter("id")
-                .passwordParameter("pw")
+                .usernameParameter("loginId")
+                .passwordParameter("password")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -62,13 +60,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");
     }
-//
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-//        auth.inMemoryAuthentication()
-//                .withUser("user").password(bCryptPasswordEncoder.encode("1234")).roles("USER")
-//                .and()
-//                .withUser("admin").password(bCryptPasswordEncoder.encode("1234")).roles("ADMIN");
-//
-//    }
 }

@@ -12,13 +12,13 @@ public interface FilesMapper {
 
     //Files
     @Select("SELECT * FROM files WHERE par=#{par}")
-    public Files fileListByPar(String par) throws Exception;
+    Files fileListByPar(String par) throws Exception;
 
     @Insert("INSERT INTO files VALUES (DEFAULT, #{par}, #{saveFolder}, #{originNm}, #{saveNm}, #{fileType}, DEFAULT)")
-    public void filesInsert(Files files) throws Exception;
+    void filesInsert(Files files) throws Exception;
 
     @Delete("DELETE FROM files WHERE par=#{par}")
-    public void filesDeleteAll(String par) throws Exception;
+    void filesDeleteAll(String par) throws Exception;
 
 
 }

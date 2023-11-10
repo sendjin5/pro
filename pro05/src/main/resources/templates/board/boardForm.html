@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h2>보드 등록</h2>
-        <form th:action="@{/board/Add}" name="fm" autocomplete="off" method="post" >
+        <form th:action="@{/board/Add}" name="fm" method="post" enctype="multipart/form-data">
             <div>
                 <label th:for="title">제목</label>
                 <input type="text" name="title" placeholder="title" required>

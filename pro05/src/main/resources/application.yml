@@ -4,7 +4,7 @@ spring:
   servlet:
     multipart:
       enabled: true
-      location: C:\\upload
+      location: D:\\kyo\\pro\\pro05\\
       max-request-size: 100MB
       max-file-size: 20MB
   profiles:
@@ -34,5 +34,5 @@ logging:
   level:
     org:
       springframework: info
-itemImgLocation: D:/kyo/pro
-uploadPaths: file:///D://kyo//pro
+itemImgLocation: C:/kyo/pro/pro05
+uploadPaths: file:///C://kyo//pro

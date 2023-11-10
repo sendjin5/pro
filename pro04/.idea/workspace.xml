@@ -13,43 +13,33 @@
     <list default="true" id="e4c28c4e-23f2-474d-877b-30b5b7a2f433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Kproject2" beforeDir="false" afterPath="$PROJECT_DIR$/../Kproject2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pro04.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pro04.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/LectureCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/LectureCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/LessonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/PaymentCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/controller/PaymentCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/domain/Lesson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/persistence/LessonMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/service/LessonService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/ed/haebeop/service/LessonServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/freeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/freeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/lessonMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fileboard/fileboardGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fileboard/fileboardGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fileboard/fileboardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fileboard/fileboardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/free/freeGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/free/freeGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/free/freeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/free/freeList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/headerAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/headerAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectAdd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lecture/lectList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lesson/lessonGet.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lesson/lessonInsert.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/lesson/lessonList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/Mycart.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberMypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberMypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/payList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/payList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/payment/cartPay.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/payment/paymentInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/payment/paymentInsert.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/log/2023-11/kimRestApiLog.2023-11-06.log" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/log/2023-11/kimRestApiLog.2023-11-06.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/log/2023-11/kimRestApiLog.2023-11-07.log" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/log/2023-11/kimRestApiLog.2023-11-07.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/log/kimRestApiLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/log/kimRestApiLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/biz/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/ctrl/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/ctrl/boardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/ctrl/boardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/domain/UserGrant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/entity/Files.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/entity/Files.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/entity/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/FilesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/FilesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/RoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/UserMapper2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/java/com/chunjae/pro05/persis/UserRoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/mappers/role.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/mappers/user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/mappers/user_role.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/templates/board/boardForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/resources/templates/board/boardForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/templates/board/boardGet.html" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/resources/templates/board/boardGet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/templates/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../pro05/src/main/resources/templates/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/templates/user/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pro05/src/main/resources/templates/user/registration.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,25 +79,25 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/kyo/pro/pro04",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "아티팩트",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.31494254",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "d3538b4f1cb4862d136facec5594f870",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/kyo/pro/pro04&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;아티팩트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.31494254&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d3538b4f1cb4862d136facec5594f870&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\kyo\pro\pro04\src\main\webapp\resources\css" />
@@ -293,6 +283,7 @@
       <workItem from="1699330979341" duration="1428000" />
       <workItem from="1699332565090" duration="5204000" />
       <workItem from="1699342899447" duration="694000" />
+      <workItem from="1699602616377" duration="3155000" />
     </task>
     <servers />
   </component>

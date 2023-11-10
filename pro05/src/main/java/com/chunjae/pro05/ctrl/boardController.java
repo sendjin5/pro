@@ -7,6 +7,8 @@ import com.chunjae.pro05.entity.Board;
 import com.chunjae.pro05.entity.Files;
 import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.XSlf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Slf4j
@@ -26,6 +29,7 @@ import java.util.*;
 @RequestMapping("/board/*")
 public class boardController {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private BoardSerivce boardSerivce;
 
@@ -58,25 +62,70 @@ public class boardController {
     };
 
     @PostMapping("/Add")
-    public String boardAdd(Board board, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
+    public String boardAdd(Board board, List<MultipartFile> uploadFiles, HttpServletRequest request, Model model) throws Exception {
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        board.setTitle(title);
+        board.setContent(content);
 
-            ServletContext application = request.getSession().getServletContext();
-            String realPath = application.getRealPath("classpath:/static/images/");       // 운영 서버
+        boardSerivce.boardAdd(board);
+        model.addAttribute("board", board);
 
-                if(uploadFiles != null) {
-                    String originaluploadFiles = uploadFiles.getOriginalFilename();
-                    UUID uuid = UUID.randomUUID();
-                    String uploaduploadFiles = uuid.toString() + "_" + originaluploadFiles;
-                    uploadFiles.transferTo(new File(realPath, uploaduploadFiles));     //파일 등록
-                    board.setBfile(uploaduploadFiles);
-                    
-                    log.info("문제 ; " + uploaduploadFiles);
-                    log.info("기존 이름 ; " + originaluploadFiles);
-                    log.info("경로 ; " + realPath);
-                    
+
+        logger.info("board--------------" + board);
+        logger.info("uploadFiles--------------" + uploadFiles);
+
+
+        if (uploadFiles != null) {
+
+//            ServletContext application = request.getSession().getServletContext();
+            String realPath = "D:\\kyo\\pro\\pro05\\src\\main\\resources\\upload/";       // 개발 서버
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            String dateFolder = sdf.format(date);
+
+            logger.info("realPath--------------" + realPath);
+
+
+            File uploadPath = new File(realPath, dateFolder);
+            if (!uploadPath.exists()) {
+                uploadPath.mkdirs();
+            }
+            logger.info("uploadPath--------------" + uploadPath);
+
+            for (MultipartFile multipartFile : uploadFiles) {
+                if (multipartFile.isEmpty()) {
+                    continue;
                 }
 
-                boardSerivce.boardAdd(board);
+                logger.info("multipartFile--------------" + multipartFile);
+
+
+
+                String originalFilename = multipartFile.getOriginalFilename();
+                UUID uuid = UUID.randomUUID();
+                String uploadFilename = uuid.toString() + "_" + originalFilename;
+                logger.info("originalFilename--------------" + originalFilename);
+                logger.info("uploadFilename--------------" + uploadFilename);
+
+                Files files = new Files();
+                files.setPar(title);
+                files.setSaveFolder(dateFolder);
+
+                String fileType = multipartFile.getContentType();
+                String[] fileTypeArr = fileType.split("/");
+                files.setFileType(fileTypeArr[0]);
+
+                files.setOriginNm(originalFilename);
+                files.setSaveNm(uploadFilename);
+
+                multipartFile.transferTo(new File(uploadPath, uploadFilename));     // 서버에 파일 업로드 수행
+                filesService.filesInsert(files);                                  // DB 등록
+                logger.info("files--------------" + files);
+
+            }
+
+        }
 
         return "redirect:/board/List";
     };

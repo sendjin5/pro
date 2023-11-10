@@ -25,8 +25,15 @@
             <th>날짜</th>
             <td th:utext="${board.resdate}"></td>
             <th>파일</th>
-            <img th:src="@{/upload/${files.saveFolder }/${files.saveNm }}" width="400" height="225"><br>
-            <a th:href="@{/upload/${files.saveFolder }/${files.saveNm }}" download="[[${files.saveNm }]]">ㅇㅇ</a>
+            <img th:src="@{D:/kyo/pro/pro05/build/resources/main/upload/${files.saveFolder }/${files.saveNm }}" width="400" height="225">
+            <br>
+            <a th:href="@{D:/kyo/pro/pro05/build/resources/main/upload/${files.saveFolder }/${files.saveNm }}" th:download="${files.saveNm }" >[[${files.originNm}]]</a>
+
+            <img src="D:/kyo/pro/pro05/build/resources/main/upload/[[${files.saveFolder }]]/[[${files.saveNm }]]" width="400" height="225">
+            <br>
+            <a href="D:/kyo/pro/pro05/build/resources/main/upload/[[${files.saveFolder }]]/[[${files.saveNm }]]" download="[[${files.saveNm }]]" >[[${files.originNm}]]</a>
+            D:\kyo\pro\pro05\build\resources\main\upload\2023\11\10
+
     </tbody>
 </table>
 <ul>
